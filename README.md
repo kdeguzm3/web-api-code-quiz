@@ -1,6 +1,6 @@
 # Web APIs: Code Quiz
 
-The goal for this assignment was to create a code quiz with multiple choice questions. The user story was as follows:
+The goal for this assignment was to create a code quiz with multiple choice questions using DOM manipulation. The user story was as follows:
 
 ```
 AS A coding bootcamp student
