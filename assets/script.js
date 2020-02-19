@@ -28,7 +28,7 @@ let pageButton=document.createElement("button");
 let storedUserName = localStorage.getItem("code-quiz-name");
 
 // timer variable
-let secondsLeft = 30;
+let secondsLeft = 5;
 let stopTimer;
 
 // variables for page state
@@ -53,24 +53,29 @@ window.addEventListener("load", function(e) {
     stopTimer=false;
   });
 
-  function startTimer() {
+function startTimer() {
     timeDiv.textContent = secondsLeft + " seconds left";
     secondsLeft--;
     let timerInterval = setInterval(function() {
-      if ((stopTimer==false) && (secondsLeft!==0)) {
-        timeDiv.textContent = secondsLeft + " seconds left";
-      secondsLeft--;
-      } else if(stopTimer==true) {
-        clearInterval(timerInterval);
-        timeDiv.textContent = "";
-        secondsLeft=5;
-        console.log("stop time!");
-      }
-      else if (secondsLeft<=0) {
-        clearInterval(timerInterval);
-        secondsLeft=5;
-        timeDiv.textContent = "";
-        console.log("out of time!");
-      }
+        if ((stopTimer==false) && (secondsLeft!==0)) {
+            timeDiv.textContent = secondsLeft + " seconds left";
+            secondsLeft--;
+        } else if(stopTimer==true) {
+            clearInterval(timerInterval);
+            timeDiv.textContent = "";
+            secondsLeft=5;
+            console.log("stop time!");
+        }
+        else if (secondsLeft<=0) {
+            clearInterval(timerInterval);
+            secondsLeft=5;
+            timeDiv.textContent = "";
+            console.log("out of time!");
+            pageButton.setAttribute("id","2");
+            pageButton.textContent="Menu";
+            sectionHeading.textContent="Game Over";
+            sectionContent.textContent="You lost!";
+            stopTimer=true;
+        }
     }, 1000);
 }
