@@ -63,16 +63,63 @@ window.addEventListener("load", function(e) {
      if (quizState === "startButton") { //purpose of this state is to transition from the menu to the quiz
        console.log("beginning quiz"); 
       
+       pageButton.setAttribute("id","1");
+       pageButton.textContent="submit";
+   
+       sectionHeading.textContent="Question 1";
+       sectionContent.textContent="Lorem question something";
+   
+       // start timer
+   
+       startTimer();
+       stopTimer=false;
+       // load question number, question prompt
+   
+       // create radio group buttons
 
      }
     else  if (quizState === "submitButton") { //purpose of this is to advance the quiz until the game over
        console.log("submitting answer");
    
-
+       pageButton.setAttribute("id","2");
+       pageButton.textContent="Menu";
+   
+       sectionHeading.textContent="Game Over";
+       sectionContent.textContent="You lost!";
+   
+       stopTimer=true;
+       // check results
+       // if answer is correct, pop up somewhere that the answer was correct
+       // add one to points
+       // stop timer
+   
+       // load next question, start loop over
+   
+       // if answer is incorrect, pop up somewhere that answer was incorrect
+       // decrement time from the clock
+       // keep going until correct answer or time runs out
+       
+       // if timer reaches 0
+       // move to game over screen
      }
      else if (quizState === "menuButton") { //go to game over after timer reaches 0 or if completed all questions. game over goes back to main menu
        console.log("going to menu");
    
+       pageButton.setAttribute("id","0");
+       pageButton.textContent="Begin Quiz";
+   
+       sectionHeading.textContent="Instructions";
+       sectionContent.textContent="Hello, " + storedUserName + ", welcome to the Code Quiz! To begin, please press the 'start' button. To see the high scores, press the 'high scores' button."  ;
+       
+       // change section header to Game over
+       // change content section to something about the game being over
+   
+       // give user the option to enter their initials to save their points
+       // initials and points get saved to local storage
+       // initials and points get loaded back onto game over screen, prepended to bottom of page
+   
+       // hide timer
+       stopTimer=true;
 
    
      }
