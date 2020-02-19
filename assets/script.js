@@ -29,6 +29,10 @@ let storedUserName = localStorage.getItem("code-quiz-name");
 
 // timer variable
 let secondsLeft = 30;
+let stopTimer;
+
+// variables for page state
+let buttonState=["startButton","submitButton","menuButton"];
 
 
 
