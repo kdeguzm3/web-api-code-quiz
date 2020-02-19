@@ -44,7 +44,7 @@ window.addEventListener("load", function(e) {
     // add button to buttonDiv with <button type="button" class="btn btn-primary" id="startButton">
     pageButton.textContent="Begin Quiz";
     pageButton.setAttribute("class","btn btn-primary");
-    pageButton.setAttribute("id","startButton");
+    pageButton.setAttribute("id","0");
     buttonDiv.appendChild(pageButton);
-    quizState=quizStateList[0];
+    stopTimer=false;
   });
