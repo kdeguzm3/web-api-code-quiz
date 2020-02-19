@@ -30,9 +30,3 @@ let storedUserName = localStorage.getItem("code-quiz-name");
 // timer variable
 let secondsLeft = 30;
 
-// variables for page state
-
-let indexState=true;
-let questionState=false;
-let gameOverState=false;
-let highScoresState=true
