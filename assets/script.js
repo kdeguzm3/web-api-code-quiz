@@ -34,7 +34,11 @@ let stopTimer;
 // variables for page state
 let buttonState=["startButton","submitButton","menuButton"];
 
-
+// local storage for name - use this for hi score initials
+if (storedUserName==null){
+    storedUserName="Guest";
+    localStorage.setItem("code-quiz-name","Guest");
+  }
 
 window.addEventListener("load", function(e) {
     e.preventDefault();
@@ -48,3 +52,25 @@ window.addEventListener("load", function(e) {
     buttonDiv.appendChild(pageButton);
     stopTimer=false;
   });
+
+  function startTimer() {
+    timeDiv.textContent = secondsLeft + " seconds left";
+    secondsLeft--;
+    let timerInterval = setInterval(function() {
+      if ((stopTimer==false) && (secondsLeft!==0)) {
+        timeDiv.textContent = secondsLeft + " seconds left";
+      secondsLeft--;
+      } else if(stopTimer==true) {
+        clearInterval(timerInterval);
+        timeDiv.textContent = "";
+        secondsLeft=5;
+        console.log("stop time!");
+      }
+      else if (secondsLeft<=0) {
+        clearInterval(timerInterval);
+        secondsLeft=5;
+        timeDiv.textContent = "";
+        console.log("out of time!");
+      }
+    }, 1000);
+}
