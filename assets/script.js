@@ -53,6 +53,32 @@ window.addEventListener("load", function(e) {
     stopTimer=false;
   });
 
+
+  pageButton.addEventListener("click",function(event) {
+    if (event.target.matches("button")){
+     event.preventDefault;
+   
+     // pulling id of button for if statement
+     let quizState=buttonState[event.target.id];
+     if (quizState === "startButton") { //purpose of this state is to transition from the menu to the quiz
+       console.log("beginning quiz"); 
+      
+
+     }
+    else  if (quizState === "submitButton") { //purpose of this is to advance the quiz until the game over
+       console.log("submitting answer");
+   
+
+     }
+     else if (quizState === "menuButton") { //go to game over after timer reaches 0 or if completed all questions. game over goes back to main menu
+       console.log("going to menu");
+   
+
+   
+     }
+    }
+   }) 
+
 function startTimer() {
     timeDiv.textContent = secondsLeft + " seconds left";
     secondsLeft--;
