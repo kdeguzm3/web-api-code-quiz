@@ -34,14 +34,19 @@ if (storedUserName==null){
 window.addEventListener("load", function(e) {
     e.preventDefault();
     console.log('page is fully loaded');
+    
     sectionHeading.textContent="Instructions";
     sectionContent.textContent="Hello, " + storedUserName + ", welcome to the Code Quiz! To begin, please press the 'start' button. To see the high scores, press the 'high scores' button."  ;
     // add button to buttonDiv with <button type="button" class="btn btn-primary" id="startButton">
+
     pageButton.textContent="Begin Quiz";
     pageButton.setAttribute("class","btn btn-primary");
     pageButton.setAttribute("id","0");
     buttonDiv.appendChild(pageButton);
+
     stopTimer=false;
+
+    pointsDiv.textContent="";
   });
 
 
@@ -68,6 +73,9 @@ window.addEventListener("load", function(e) {
    
        // create radio group buttons
 
+      // create points div
+      pointsDiv.textContent="Points: " + pointsEarned;
+
      }
     else  if (quizState === "submitButton") { //purpose of this is to advance the quiz until the game over
        console.log("submitting answer");
@@ -79,6 +87,14 @@ window.addEventListener("load", function(e) {
        sectionContent.textContent="You lost!";
    
        stopTimer=true;
+       timeDiv.textContent="";
+       pointsDiv.textContent="";
+
+       scoreButton.textContent="Submit Score";
+       scoreButton.setAttribute("class","btn btn-primary mx-1");
+       scoreButton.setAttribute("style","display:inline");
+       scoreButton.setAttribute("id","3");
+       buttonDiv.appendChild(scoreButton);
        // check results
        // if answer is correct, pop up somewhere that the answer was correct
        // add one to points
@@ -102,6 +118,9 @@ window.addEventListener("load", function(e) {
        sectionHeading.textContent="Instructions";
        sectionContent.textContent="Hello, " + storedUserName + ", welcome to the Code Quiz! To begin, please press the 'start' button. To see the high scores, press the 'high scores' button."  ;
        
+       pointsDiv.textContent="";
+
+       scoreButton.setAttribute("style","display:none");
        // change section header to Game over
        // change content section to something about the game being over
    
