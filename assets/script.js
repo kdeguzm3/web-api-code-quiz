@@ -1,28 +1,16 @@
 
-    // WHEN I click the start button
-    // THEN a timer starts and I am presented with a question
-
-    // WHEN I answer a question
-    // THEN I am presented with another question
-
-    // WHEN I answer a question incorrectly
-    // THEN time is subtracted from the clock
-
-    // WHEN all questions are answered or the timer reaches 0
-    // THEN the game is over
-
-    // WHEN the game is over
-    // THEN I can save my initials and score
-
-    // handlers for parts of page
+// handlers for parts of page
     
 let timeDiv = document.querySelector("#timeDiv");
 let sectionHeading = document.querySelector("#section-heading");
 let sectionContent = document.querySelector("#section-content");
 let buttonDiv = document.querySelector("#button-div");
+let pointsDiv = document.querySelector("#points-div");
+let interactionDiv = document.querySelector("#interaction-div");
 
 // handlers for created elements
 let pageButton=document.createElement("button");
+let scoreButton = document.createElement("scoreButton");
 
 // handlers for local storage
 let storedUserName = localStorage.getItem("code-quiz-name");
@@ -33,6 +21,9 @@ let stopTimer;
 
 // variables for page state
 let buttonState=["startButton","submitButton","menuButton"];
+
+//points variable
+let pointsEarned=0;
 
 // local storage for name - use this for hi score initials
 if (storedUserName==null){
