@@ -85,7 +85,7 @@ window.addEventListener("load", function(e) {
        pageButton.textContent="Menu";
    
        sectionHeading.textContent="Game Over";
-       sectionContent.textContent="You lost!";
+       sectionContent.textContent="You earned " + pointsEarned + " points. Submit your score below.";
    
        stopTimer=true;
        timeDiv.textContent="";
@@ -167,7 +167,7 @@ function startTimer() {
             pageButton.setAttribute("id","2");
             pageButton.textContent="Menu";
             sectionHeading.textContent="Game Over";
-            sectionContent.textContent="You lost!";
+            sectionContent.textContent="You earned " + pointsEarned + " points. Submit your score below.";
             stopTimer=true;
         }
     }, 1000);
