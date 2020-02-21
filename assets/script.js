@@ -25,6 +25,7 @@ let buttonState=["startButton","submitButton","menuButton"];
 
 //points variable
 let pointsEarned=0;
+let initials;
 
 // local storage for name - use this for hi score initials
 if (storedUserName==null){
@@ -105,6 +106,13 @@ window.addEventListener("load", function(e) {
        initialEntry.setAttribute("id","textInitials");
        interactionDiv.appendChild(initialEntry);
    
+       scoreButton.addEventListener("click",function(event){
+        if (event.target.id="scoreButton") {
+          initials = document.querySelector("#textInitials").value;
+          console.log("saved initials are " + initials );
+          localStorage.setItem("code-quiz-name",initials);
+        }
+      });
        // check results
        // if answer is correct, pop up somewhere that the answer was correct
        // add one to points
@@ -130,7 +138,9 @@ window.addEventListener("load", function(e) {
        
        pointsDiv.textContent="";
 
+      // hiding score submit and initial entry buttons on menu
        scoreButton.setAttribute("style","display:none");
+       initialEntry.setAttribute("style","display:none");
        // change section header to Game over
        // change content section to something about the game being over
    
