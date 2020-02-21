@@ -12,6 +12,7 @@ let interactionDiv = document.querySelector("#interaction-div");
 let pageButton=document.createElement("button");
 let scoreButton = document.createElement("button");
 let initialEntry = document.createElement("input");
+let previousScores = document.createElement("span");
 
 // handlers for local storage
 let storedUserName = localStorage.getItem("code-quiz-name");
@@ -38,7 +39,7 @@ window.addEventListener("load", function(e) {
     console.log('page is fully loaded');
     
     sectionHeading.textContent="Instructions";
-    sectionContent.textContent="Hello, " + storedUserName + ", welcome to the Code Quiz! To begin, please press the 'start' button. To see the high scores, press the 'high scores' button."  ;
+    sectionContent.textContent="Hello, " + storedUserName + ", welcome to the Code Quiz! To begin, please press the 'start' button."  ;
     // add button to buttonDiv with <button type="button" class="btn btn-primary" id="startButton">
 
     pageButton.textContent="Begin Quiz";
@@ -66,6 +67,7 @@ window.addEventListener("load", function(e) {
    
        sectionHeading.textContent="Question 1";
        sectionContent.textContent="Lorem question something";
+       interactionDiv.textContent="";
    
        // start timer
    
@@ -101,7 +103,7 @@ window.addEventListener("load", function(e) {
        initialEntry.setAttribute("type","text");
        initialEntry.setAttribute("placeholder","enter initials");
        initialEntry.setAttribute("maxlength","2");
-       // initialEntry.setAttribute("size","10");
+       initialEntry.setAttribute("style","display:inline");
        initialEntry.setAttribute("class","form-control");
        initialEntry.setAttribute("id","textInitials");
        interactionDiv.appendChild(initialEntry);
@@ -111,6 +113,7 @@ window.addEventListener("load", function(e) {
           initials = document.querySelector("#textInitials").value;
           console.log("saved initials are " + initials );
           localStorage.setItem("code-quiz-name",initials);
+          localStorage.setItem("pointsEarned",pointsEarned);
         }
       });
        // check results
@@ -134,13 +137,16 @@ window.addEventListener("load", function(e) {
        pageButton.textContent="Begin Quiz";
    
        sectionHeading.textContent="Instructions";
-       sectionContent.textContent="Hello, " + storedUserName + ", welcome to the Code Quiz! To begin, please press the 'start' button. To see the high scores, press the 'high scores' button."  ;
+       sectionContent.textContent="Hello, " + initials + ", welcome to the Code Quiz! To begin, please press the 'start' button."  ;
        
        pointsDiv.textContent="";
 
       // hiding score submit and initial entry buttons on menu
        scoreButton.setAttribute("style","display:none");
        initialEntry.setAttribute("style","display:none");
+
+       previousScores.textContent="Previous Score: " + pointsEarned + ", " + initials;
+       interactionDiv.prepend(previousScores);
        // change section header to Game over
        // change content section to something about the game being over
    
