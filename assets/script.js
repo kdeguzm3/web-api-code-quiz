@@ -10,7 +10,8 @@ let interactionDiv = document.querySelector("#interaction-div");
 
 // handlers for created elements
 let pageButton=document.createElement("button");
-let scoreButton = document.createElement("scoreButton");
+let scoreButton = document.createElement("button");
+let initialEntry = document.createElement("input");
 
 // handlers for local storage
 let storedUserName = localStorage.getItem("code-quiz-name");
@@ -40,7 +41,7 @@ window.addEventListener("load", function(e) {
     // add button to buttonDiv with <button type="button" class="btn btn-primary" id="startButton">
 
     pageButton.textContent="Begin Quiz";
-    pageButton.setAttribute("class","btn btn-primary");
+    pageButton.setAttribute("class","btn btn-primary my-1");
     pageButton.setAttribute("id","0");
     buttonDiv.appendChild(pageButton);
 
@@ -91,10 +92,19 @@ window.addEventListener("load", function(e) {
        pointsDiv.textContent="";
 
        scoreButton.textContent="Submit Score";
-       scoreButton.setAttribute("class","btn btn-primary mx-1");
+       scoreButton.setAttribute("class","btn btn-primary mx-1 my-1");
        scoreButton.setAttribute("style","display:inline");
        scoreButton.setAttribute("id","3");
        buttonDiv.appendChild(scoreButton);
+
+       initialEntry.setAttribute("type","text");
+       initialEntry.setAttribute("placeholder","enter initials");
+       initialEntry.setAttribute("maxlength","2");
+       // initialEntry.setAttribute("size","10");
+       initialEntry.setAttribute("class","form-control");
+       initialEntry.setAttribute("id","textInitials");
+       interactionDiv.appendChild(initialEntry);
+   
        // check results
        // if answer is correct, pop up somewhere that the answer was correct
        // add one to points
